@@ -29,7 +29,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <button href="#" @click="selectedcomponent = 'HeaderUser'" ><i class="fa fa-user"></i> Login</button>
                             </div>
                         </div>
                     </div>
@@ -78,6 +78,15 @@
     </header>
 </template>
 <script>
+import User from './User.vue'
 export default {
+    data: function(){
+        return {
+
+        }
+    },
+    components: {
+        HeaderUser: User,
+    }
 }
 </script>
