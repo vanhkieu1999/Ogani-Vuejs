@@ -1,6 +1,6 @@
 <template>
-    <div class="hero">
-        <div class="container">
+    <div class="hero container">
+        <div class="">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="hero__categories">
@@ -56,25 +56,25 @@
                 </div>
             </div>
         </div>
-        <section class="categories">
-                <div class="container">
-                    <div class="row">
-                        <div class="swiper mySwiper"> 
-                            <div class="swiper-wrapper" id="categories">
-                                <!-- <carousel>
-                                    <slide > -->
-                                        <div class="swiper-slide" v-for="cate in ListMeat">
-                                            <div class="img"><img :src = "cate.imgsrc" width = "380" height = "300" /></div>
-                                            <h5 class="title"> {{ cate.title }}</h5>
-                                        </div> 
-                                    <!-- </slide>            
-                                </carousel> -->
+        <section class="categories" style="margin-top: 5rem;">
+            <div class="container">
+                <div class="row">
+                    <!-- <carousel>
+                        <slide > -->
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" v-for="cate in cateList">
+                                        <div class="img"><img :src = "cate.imgsrc" width = "380" height = "300" /></div>
+                                        <h5 class="title"> {{ cate.title }}</h5>
+                                    </div> 
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
                             </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                    </div>
+                        <!-- </slide>            
+                    </carousel> -->
                 </div>
+            </div>
         </section>
         <section class="featured spad">
                 <div class="row">
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="row featured__filter" id="categories">
-                    <div id="cuqua" class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges" v-for="feature in ListMeat">
+                    <div id="cuqua" class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges" v-for="feature in cateList">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg">
                             <div class="img"><img :src = "feature.imgsrc" width = "300" height = "250" /></div>
@@ -129,254 +129,104 @@
         </div>
         </div>
         <section class="latest-product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Latest Products</h4>
-                        <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__list latestPrdouct">
-                                <div class="latest-prdouct__slider__list--item">
-                                <a href="#" class="latest-product__item" id="spinach">
-                                        <div class="latest-product__item__pic">
-                                        <img :src = "imgsrc" width = "300" height = "250" />
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                        <h6><a href="#">{{ title }}</a></h6>
-                                            <span>{{ price }}</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="latest-prdouct__slider__list--item">
-                                <a href="#" class="latest-product__item" id="bell-pepper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="latest-product__text">
+                            <h4>Latest Products</h4>
+                            <div class="latest-product__slider">
+                                <a href="#" class="latest-product__item" v-for="product in productList">
                                     <div class="latest-product__item__pic">
-                                        <img :src = "imgsrc" width = "300" height = "250" />
+                                    <img :src = "product.imgsrc" width = "300" height = "250" />
                                     </div>
                                     <div class="latest-product__item__text">
-                                        <h6><a href="#">{{ title }}</a></h6>
-                                        <span>{{ price }}</span>
+                                    <h6><a href="#">{{ product.title }}</a></h6>
+                                        <span>{{ product.price }}</span>
                                     </div>
                                 </a>
-                                </div>
-                                <div class="latest-prdouct__slider__list--item">
-                                <a href="#" class="latest-product__item" id="fried-chicken">
-                                    <div class="latest-product__item__pic">
-                                        <img :src = "imgsrc" width = "300" height = "250" />
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6><a href="#">{{ title }}</a></h6>
-                                        <span>{{ price }}</span>
-                                    </div>
-                                </a>
-                                </div>
-                                <div class="latest-prdouct__slider__list--item">
-                                    <a href="#" class="latest-product__item" id="spinach">
-                                        <div class="latest-product__item__pic">
-                                            <img :src = "imgsrc" width = "300" height = "250" />
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <a href="#"><h6>{{ title }}</h6></a>
-                                            <span>{{ price }}</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="latest-prdouct__slider__list--item">
-                                    <a href="#" class="latest-product__item" id="bell-pepper">
-                                        <div class="latest-product__item__pic">
-                                        <img :src = "imgsrc" width = "300" height = "250" />
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                        <h6><a href="#">{{ title }}</a></h6>
-                                            <span>{{ price }}</span>
-                                        </div>
-                                    </a>
-                                    </div>
-                                    <div class="latest-prdouct__slider__list--item">
-                                    <a href="#" class="latest-product__item" id="fried-chicken">
-                                        <div class="latest-product__item__pic">
-                                        <img :src = "imgsrc" width = "300" height = "250" />
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                        <h6><a href="#">{{ title }}</a></h6>
-                                            <span>{{ price }}</span>
-                                        </div>
-                                    </a>
-                                    </div>
-                                
-                            </div>
-                            <div class="owl-nav">
-                                <button type="button" role="presentation" class="latestPrdouct-owl-prev">
-                                <span class="fa fa-angle-left">
-                                    <span>
+                                <div class="owl-nav">
+                                    <button type="button" role="presentation" class="latestPrdouct-owl-prev">
+                                    <span class="fa fa-angle-left">
+                                        <span>
+                                        </span>
                                     </span>
-                                </span>
-                                </button>
-                                <button type="button" role="presentation" class="latestPrdouct-owl-next">
-                                <span class="fa fa-angle-right">
-                                    <span>
+                                    </button>
+                                    <button type="button" role="presentation" class="latestPrdouct-owl-next">
+                                    <span class="fa fa-angle-right">
+                                        <span>
+                                        </span>
                                     </span>
-                                </span>
-                                </button>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Top Rated Products</h4>
-                        <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__list TopRateProduct">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="latest-product__text">
+                            <h4>Top Rated Products</h4>
+                            <div class="latest-product__slider owl-carousel">
+                                <div class="latest-prdouct__slider__list TopRateProduct">
+                                    <a href="#" class="latest-product__item"  v-for="product in productList">
+                                        <div class="latest-product__item__pic">
+                                            <img :src="product.imgsrc" alt="">
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6>{{product.title}}</h6>
+                                            <span>{{product.price}}</span>
+                                        </div>
                                     </a>
-                            </div>
-                            <div class="owl-nav">
-                                <button type="button" role="presentation" class="TopRateProduct-owl-prev">
-                                <span class="fa fa-angle-left">
-                                    <span>
+                                </div>
+                                <div class="owl-nav">
+                                    <button type="button" role="presentation" class="TopRateProduct-owl-prev">
+                                    <span class="fa fa-angle-left">
+                                        <span>
+                                        </span>
                                     </span>
-                                </span>
-                                </button>
-                                <button type="button" role="presentation" class="TopRateProduct-owl-next">
-                                <span class="fa fa-angle-right">
-                                    <span>
+                                    </button>
+                                    <button type="button" role="presentation" class="TopRateProduct-owl-next">
+                                    <span class="fa fa-angle-right">
+                                        <span>
+                                        </span>
                                     </span>
-                                </span>
-                                </button>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
                         <h4>Review Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__list ReviewProduct">
-                                <a href="#" class="latest-product__item">
+                                <a href="#" class="latest-product__item"  v-for="product in productList">
                                     <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                        <img :src="product.imgsrc" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
+                                        <h6>{{product.title}}</h6>
+                                        <span>{{product.price}}</span>
                                     </div>
                                 </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                        </a>
-                                    </div>
-                                        <div class="owl-nav">
-                                            <button type="button" role="presentation" class="ReviewProduct-owl-prev">
-                                            <span class="fa fa-angle-left">
-                                                <span>
-                                                </span>
+                            </div>
+                            <div class="owl-nav">
+                                <button type="button" role="presentation" class="ReviewProduct-owl-prev">
+                                    <span class="fa fa-angle-left">
+                                        <span>
+                                        </span>
+                                    </span>
+                                    </button>
+                                    <button type="button" role="presentation" class="ReviewProduct-owl-next">
+                                        <span class="fa fa-angle-right">
+                                            <span>
                                             </span>
-                                            </button>
-                                            <button type="button" role="presentation" class="ReviewProduct-owl-next">
-                                            <span class="fa fa-angle-right">
-                                                <span>
-                                                </span>
-                                            </span>
-                                            </button>
-                                        </div>
-                                    </div>
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
         </section>
         <section class="from-blog spad">
             <div class="container">
@@ -408,8 +258,129 @@
         </section>
     </div>
 </template>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
 <script>
 export default {
+
+    data(){
+        return{
+            cateList: [
+                {
+                id: 1,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-1.jpg")
+                },
+                {
+                id: 2,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-2.jpg")
+                },
+                {
+                id: 3,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-3.jpg")
+                },
+                {
+                id: 4,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-4.jpg")
+                },
+                {
+                id: 5,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-5.jpg")
+                },
+                {
+                id: 6,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-6.jpg")
+                },
+                {
+                id: 7,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-7.jpg")
+                },
+                {
+                id: 8,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-8.jpg")
+                }
+            ],
+            productList: [
+                {
+                id: 1,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-1.jpg")
+                },
+                {
+                id: 2,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-2.jpg")
+                },
+                {
+                id: 3,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-3.jpg")
+                },
+                {
+                id: 4,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-4.jpg")
+                },
+                {
+                id: 5,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-5.jpg")
+                },
+                {
+                id: 6,
+                title: "Crab Pool Security",
+                price: "$30.00",
+                imgsrc: require("../assets/product/product-6.jpg")
+                },
+            ],
+            blogList: [
+                {
+                    id: 1,
+                    date: 'May 4, 2019',
+                    commentCount: '5',
+                    title: 'Cooking tips make cooking simple',
+                    content: 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
+                    imgsrc: require("../assets/blog/blog-1.jpg")
+                },
+                {
+                    id: 2,
+                    date: 'May 4, 2019',
+                    commentCount: '5',
+                    title: '6 ways to prepare breakfast for 30',
+                    content: 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
+                    imgsrc: require("../assets/blog/blog-2.jpg")
+                },
+                {
+                    id: 3,
+                    date: 'May 4, 2019',
+                    commentCount: '5',
+                    title: 'Cooking tips make cooking simple',
+                    content: 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
+                    imgsrc: require("../assets/blog/blog-3.jpg")
+                },
+            ]
+        }
+    }
 }
 
 </script>
