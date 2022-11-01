@@ -927,6 +927,107 @@ ol {
   margin-bottom: 70px;
 }
 
+.hero .categories h5 {
+  font-size: 18px;
+  width: 92%;
+  height: 45px;
+  background: #ffffff;
+  padding: 15px 0 0 50px;
+  margin-top: -4rem;
+}
+.hero .categories .slick-slide img {
+  height: 100%;
+  width: 100%;
+}
+.hero .categories .img {
+  height: 270px;
+  width: 290px;
+}
+.hero .categories .slick-slide {
+  margin-left: 3px;
+}
+.hero .categories .slick-slider.slick-initialized button {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0);
+  height: 70px;
+  width: 30px;
+  line-height: 70px;
+  text-align: center;
+  border: 1px solid #b1b1b1;
+  position: absolute;
+  left: -35px;
+  top: 42%;
+  -webkit-transform: translateY(-35px);
+  background: #ffffff;
+  padding-left: 8px;
+}
+.hero .categories button.slick-arrow.slick-next {
+  left: auto;
+  right: -35px;
+}
+.hero .categories .slick-prev:before {
+  content: "‹" !important;
+  font-size: 35px !important;
+}
+.hero .categories .slick-next:before {
+  content: "›" !important;
+  font-size: 35px !important;
+}
+.hero .categories .slick-list {
+  height: 20rem;
+}
+.hero .latest-product .slick-prev {
+  left: 21rem;
+  top: -60px;
+}
+.hero .latest-product .slick-next {
+  right: 16px;
+  top: -60px;
+}
+.hero .dropdown ul {
+  top: 0rem !important;
+  left: 0rem !important;
+  width: 100%;
+  border-radius: 0;
+  display: block;
+  margin-top: 3rem;
+}
+.hero .dropdown button#dropdown-left__BV_toggle_ {
+  background: #7fad39;
+  border: none;
+  width: 18rem;
+  height: 3rem;
+}
+.hero .dropdown button#dropdown-left__BV_toggle_:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+.hero ul.dropdown-menu.show {
+  margin: 0;
+}
+.hero .btn-group {
+  border-radius: 0 !important;
+}
+.hero .hero__categories__all:after {
+  display: none !important;
+}
+.hero .hero__categories ul li a {
+  line-height: 30px;
+  text-decoration: none;
+}
+.hero #dropdown-left {
+  padding: 0;
+}
+.hero i.fa.fa-bars {
+  position: absolute;
+  z-index: 1;
+  margin: 1.5rem 0 0 4rem;
+  color: #fff;
+}
+
+footer ul {
+  padding: 0;
+}
+
 /*---------------------
   Breadcrumb
 -----------------------*/

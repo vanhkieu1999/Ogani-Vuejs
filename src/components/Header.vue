@@ -29,7 +29,7 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <button href="#" @click="selectedcomponent = 'HeaderUser'" ><i class="fa fa-user"></i> Login</button>
+                                <button @click="selectedcomponent = 'HeaderUser'" ><i class="fa fa-user"></i> Login</button>
                             </div>
                         </div>
                     </div>
@@ -54,10 +54,10 @@
                                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
+                                </ul>   
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="./user.html">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -79,14 +79,17 @@
 </template>
 <script>
 import User from './User.vue'
+import ContactVue from './Contact.vue';
+
 export default {
     data: function(){
         return {
-
+            selectedcomponent: 'HeaderUser',
         }
     },
     components: {
         HeaderUser: User,
+        Contact: ContactVue, 
     }
 }
 </script>
