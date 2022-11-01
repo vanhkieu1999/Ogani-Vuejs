@@ -10,11 +10,14 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "bootstrap": "^5.2.2",
+    "bootstrap-vue": "^2.23.1",
     "jquery": "^3.6.1",
     "popper.js": "^1.16.1",
     "swiper": "^6.8.4",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue": "^2.7.13",
+    "vue-router": "^3.0.1",
+    "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

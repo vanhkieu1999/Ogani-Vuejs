@@ -4,23 +4,20 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit &amp; Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter &amp; Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya &amp; Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
+                        <i class="fa fa-bars"></i>
+                        <b-dropdown id="dropdown-left" text="All departments" variant="primary" class="m-2 hero__categories__all ">
+                            <b-dropdown-item><a href="#">Fresh Meat</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Vegetables</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Fruit &amp; Nut Gifts</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Fresh Berries</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Ocean Foods</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Butter &amp; Eggs</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Fastfood</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Fresh Onion</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Papayaya &amp; Crisps</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Oatmeal</a></b-dropdown-item>
+                            <b-dropdown-item><a href="#">Fresh Bananas</a></b-dropdown-item>
+                        </b-dropdown>
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -57,24 +54,12 @@
             </div>
         </div>
         <section class="categories" style="margin-top: 5rem;">
-            <div class="container">
-                <div class="row">
-                    <!-- <carousel>
-                        <slide > -->
-                            <div class="swiper mySwiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide" v-for="cate in cateList">
-                                        <div class="img"><img :src = "cate.imgsrc" width = "380" height = "300" /></div>
-                                        <h5 class="title"> {{ cate.title }}</h5>
-                                    </div> 
-                                </div>
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                            </div>
-                        <!-- </slide>            
-                    </carousel> -->
-                </div>
-            </div>
+            <VueSlickCarousel v-bind="SlideCateList">
+            <div class="swiper-slide" v-for="cate in cateList">
+                <div class="img"><img :src = "cate.imgsrc" width = "380" height = "300" /></div>
+                <h5 class="title"> {{ cate.title }}</h5>
+            </div> 
+            </VueSlickCarousel>
         </section>
         <section class="featured spad">
                 <div class="row">
@@ -133,30 +118,20 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="latest-product__text">
-                            <h4>Latest Products</h4>
-                            <div class="latest-product__slider">
-                                <a href="#" class="latest-product__item" v-for="product in productList">
-                                    <div class="latest-product__item__pic">
-                                    <img :src = "product.imgsrc" width = "300" height = "250" />
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                    <h6><a href="#">{{ product.title }}</a></h6>
-                                        <span>{{ product.price }}</span>
-                                    </div>
-                                </a>
-                                <div class="owl-nav">
-                                    <button type="button" role="presentation" class="latestPrdouct-owl-prev">
-                                    <span class="fa fa-angle-left">
-                                        <span>
-                                        </span>
-                                    </span>
-                                    </button>
-                                    <button type="button" role="presentation" class="latestPrdouct-owl-next">
-                                    <span class="fa fa-angle-right">
-                                        <span>
-                                        </span>
-                                    </span>
-                                    </button>
+                            <h4>Latest Prdouct</h4>
+                            <div class="latest-product__slider owl-carousel">
+                                <div class="latest-prdouct__slider__list latestPrdouct">
+                                    <VueSlickCarousel v-bind="slideProductList">
+                                        <a href="#" class="latest-product__item"  v-for="product in productList">
+                                            <div class="latest-product__item__pic">
+                                                <img :src="product.imgsrc" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>{{product.title}}</h6>
+                                                <span>{{product.price}}</span>
+                                            </div>
+                                        </a>
+                                    </VueSlickCarousel>
                                 </div>
                             </div>
                         </div>
@@ -165,62 +140,38 @@
                         <div class="latest-product__text">
                             <h4>Top Rated Products</h4>
                             <div class="latest-product__slider owl-carousel">
-                                <div class="latest-prdouct__slider__list TopRateProduct">
-                                    <a href="#" class="latest-product__item"  v-for="product in productList">
-                                        <div class="latest-product__item__pic">
-                                            <img :src="product.imgsrc" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>{{product.title}}</h6>
-                                            <span>{{product.price}}</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="owl-nav">
-                                    <button type="button" role="presentation" class="TopRateProduct-owl-prev">
-                                    <span class="fa fa-angle-left">
-                                        <span>
-                                        </span>
-                                    </span>
-                                    </button>
-                                    <button type="button" role="presentation" class="TopRateProduct-owl-next">
-                                    <span class="fa fa-angle-right">
-                                        <span>
-                                        </span>
-                                    </span>
-                                    </button>
+                                <div class="latest-prdouct__slider__list latestPrdouct">
+                                    <VueSlickCarousel v-bind="slideProductList">
+                                        <a href="#" class="latest-product__item"  v-for="product in productList">
+                                            <div class="latest-product__item__pic">
+                                                <img :src="product.imgsrc" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>{{product.title}}</h6>
+                                                <span>{{product.price}}</span>
+                                            </div>
+                                        </a>
+                                    </VueSlickCarousel>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
                         <h4>Review Products</h4>
                         <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__list ReviewProduct">
-                                <a href="#" class="latest-product__item"  v-for="product in productList">
-                                    <div class="latest-product__item__pic">
-                                        <img :src="product.imgsrc" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>{{product.title}}</h6>
-                                        <span>{{product.price}}</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="owl-nav">
-                                <button type="button" role="presentation" class="ReviewProduct-owl-prev">
-                                    <span class="fa fa-angle-left">
-                                        <span>
-                                        </span>
-                                    </span>
-                                    </button>
-                                    <button type="button" role="presentation" class="ReviewProduct-owl-next">
-                                        <span class="fa fa-angle-right">
-                                            <span>
-                                            </span>
-                                        </span>
-                                    </button>
+                            <div class="latest-prdouct__slider__list latestPrdouct">
+                                    <VueSlickCarousel v-bind="slideProductList">
+                                        <a href="#" class="latest-product__item"  v-for="product in productList">
+                                            <div class="latest-product__item__pic">
+                                                <img :src="product.imgsrc" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>{{product.title}}</h6>
+                                                <span>{{product.price}}</span>
+                                            </div>
+                                        </a>
+                                    </VueSlickCarousel>
                                 </div>
                             </div>
                         </div>
@@ -256,15 +207,81 @@
                 </div>
             </div>
         </section>
+      
     </div>
 </template>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
 <script>
-export default {
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
+function cateFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            console.log(openDropdown)
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+export default {
+    name: 'MyComponent',
+    components: { VueSlickCarousel },
     data(){
         return{
+            SlideCateList: {
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: false,
+                swipe: true,
+                responsive: [
+                    {
+                    "breakpoint": 1024,
+                        "SlideCateList": {
+                            "slidesToShow": 3,
+                            "slidesToScroll": 1,
+                            "infinite": true,
+                            "dots": true
+                        }
+                    },
+                    {   
+                    "breakpoint": 600,
+                        "SlideCateList": {
+                            "slidesToShow": 2,
+                            "slidesToScroll": 1,
+                            "initialSlide": 2
+                        }
+                    },
+                    {
+                    "breakpoint": 480,
+                        "SlideCateList": {
+                            "slidesToShow": 1,
+                            "slidesToScroll": 1
+                        }
+                    }
+                ]
+            },
+            slideProductList: {
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                slidesPerRow: 1,
+                rows: 3,
+                autoplay: true,
+                swipe: true,
+            },
+            
             cateList: [
                 {
                 id: 1,
@@ -285,10 +302,10 @@ export default {
                 imgsrc: require("../assets/product/product-3.jpg")
                 },
                 {
-                id: 4,
+                id: 7,
                 title: "Crab Pool Security",
                 price: "$30.00",
-                imgsrc: require("../assets/product/product-4.jpg")
+                imgsrc: require("../assets/product/product-7.jpg")
                 },
                 {
                 id: 5,
@@ -391,5 +408,7 @@ export default {
     .hero__categories ul{
         text-align: left;
     }
-
+    .slick-prev:before, .slick-next:before{
+        color: #000;
+    }
 </style>

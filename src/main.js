@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
 
 import './scss/style.css'
 import './css/bootstrap.min.css'
@@ -13,7 +15,9 @@ import './css/slick.css'
 import './css/slick-theme.css'
 import './css/style.css'
 import './css/swiper-bundle.min.css'
-
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+  
 
 import './js/slick'
 import './js/slick.min.js'
@@ -21,6 +25,8 @@ import './js/index'
 import './data/data'
 
 Vue.config.productionTip = false
+Vue.use(BootstrapVue)
+
 
 new Vue({
   el: '#App',
