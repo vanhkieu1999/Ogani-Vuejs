@@ -1,27 +1,28 @@
 <template>
-  <div>
-    <Navigation />
-      <router-view/> 
-  </div>
-</template>
+    <div id="App">
+      <Header />
+      <Content />
+      <Footer />
+    </div>
+  </template>
+  
+  <script>
+  import Header from './components/Header.vue';
+  import Footer from './components/Footer.vue';
+  import Content from './components/content.vue';
 
-<script>
-import Navigation from './components/layouts/navigation.vue';
-export default {
-  name: 'App',
-  components: {
-    Navigation,
+  // import SwiperSlider from './components/SwiperSlider';
+  export default {
+      name: "TheApp",
+      components: {
+    Header,
+    Footer,
+    Content
 }
-}
-</script>
+  }
+  </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  <style>
+
+  </style>
+  
