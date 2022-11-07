@@ -1,7 +1,7 @@
 {
-  "name": "test-component",
+  "name": "vuejs",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Learning vuejs",
   "author": "kieuvanh1999 <01248991825lala@gmail.com>",
   "private": true,
   "scripts": {
@@ -13,7 +13,9 @@
     "bootstrap": "^5.2.2",
     "bootstrap-vue": "^2.23.1",
     "jquery": "^3.6.1",
-    "vue": "^2.5.2",
+    "popper.js": "^1.16.1",
+    "swiper": "^6.8.4",
+    "vue": "^2.7.13",
     "vue-router": "^3.0.1",
     "vue-slick-carousel": "^1.0.6"
   },
@@ -46,6 +48,7 @@
     "shelljs": "^0.7.6",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
+    "vue-carousel": "^0.18.0",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
@@ -62,5 +65,8 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "tags": [
+    "swiper"
   ]
 }
